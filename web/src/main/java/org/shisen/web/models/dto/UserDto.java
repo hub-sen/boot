@@ -1,36 +1,47 @@
 package org.shisen.web.models.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.shisen.web.models.BaseModel;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
- * <pre>
- * Description  用户传输实体
- * </pre>
- *
  * @author shishi
+ * @date 2019-07-17 17:03:56
  */
+
 @Accessors(chain = true)
 @Getter
 @Setter
-@ApiModel("用户实体 - 传输")
-@Table(name = "user", uniqueConstraints = {@UniqueConstraint(columnNames = {"userId"})})
+@Table(name = "user")
 public class UserDto extends BaseModel implements BaseDto {
+
+	/**
+	 * 用户编号
+	 */
 	@Id
-	@ApiModelProperty("用户id")
 	private Long userId;
-	@ApiModelProperty("用户姓名")
+
+	/**
+	 * 用户名
+	 */
+	@Column(name = "user_name")
 	private String userName;
-	@ApiModelProperty("年龄")
+
+	/**
+	 * 年龄, 异常为0
+	 */
+	@Column(name = "age")
 	private Integer age;
-	@ApiModelProperty("密码")
+
+	/**
+	 * 密码
+	 */
+	@Column(name = "password")
 	private String password;
+
 }
