@@ -10,7 +10,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 public class WebBootApplication {
 
 	public static void main(String[] args) {
-		// SpringApplication.run(WebBootApplication.class, args);
+		// SpringApplication.run(WebBootApplication.class, args) ;
 		new SpringApplicationBuilder(WebBootApplication.class)
 				.bannerMode(Banner.Mode.CONSOLE)
 				.run(args);
