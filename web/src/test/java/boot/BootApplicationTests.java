@@ -23,4 +23,8 @@ public class BootApplicationTests {
 		System.out.println("user = " + user);
 	}
 
+	@Test
+	pulbic void test_gxj(){
+		System.out.println("this is gxj");
+	}
 }
