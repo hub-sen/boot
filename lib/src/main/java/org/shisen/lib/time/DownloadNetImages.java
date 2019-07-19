@@ -23,7 +23,7 @@ public class DownloadNetImages {
     // 获取img标签正则
     private static final String IMGURL_REG = "<img.*src=(.*?)[^>]*?>";
     // 获取a标签正则
-    private static final String A_REG = "<a href=\"//www.plmm.com.cn/(.*?).html\" target=\"_blank\">";
+    private static final String A_REG = "<factory href=\"//www.plmm.com.cn/(.*?).html\" target=\"_blank\">";
     // 获取src路径的正则
     private static final String IMGSRC_REG = "//img.plmm.com.cn/(.*?).jpg@!w210";
 

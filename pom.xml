@@ -7,6 +7,7 @@
         <module>web</module>
         <module>lib</module>
         <module>job</module>
+        <module>spring-ioc</module>
     </modules>
 
     <parent>
