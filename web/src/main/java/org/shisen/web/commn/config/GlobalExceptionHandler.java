@@ -1,8 +1,8 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.shisen.web.commn.config.exception.ExceptionEnum;
-import org.shisen.web.commn.config.response.ExceptionResponse;
+import org.shisen.web.commn.exception.ExceptionEnum;
+import org.shisen.web.commn.response.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

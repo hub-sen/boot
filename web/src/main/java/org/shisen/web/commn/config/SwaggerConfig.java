@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;

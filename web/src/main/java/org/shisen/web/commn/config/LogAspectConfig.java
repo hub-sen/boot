@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

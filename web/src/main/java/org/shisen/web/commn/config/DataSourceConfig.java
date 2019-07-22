@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

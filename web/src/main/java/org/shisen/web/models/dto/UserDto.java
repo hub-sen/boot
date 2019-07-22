@@ -6,6 +6,8 @@ import lombok.experimental.Accessors;
 import org.shisen.web.models.BaseModel;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -24,6 +26,7 @@ public class UserDto extends BaseModel implements BaseDto {
 	 * 用户编号
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 
 	/**

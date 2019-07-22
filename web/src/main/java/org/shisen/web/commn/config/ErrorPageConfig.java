@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.ErrorPageRegistrar;

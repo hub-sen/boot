@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.exception;
+package org.shisen.web.commn.exception;
 
 import lombok.Getter;
 

@@ -2,12 +2,15 @@ package org.shisen.web.service;
 
 import org.shisen.web.models.dto.UserDto;
 import org.shisen.web.models.vo.UserVo;
+import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  * <pre>
  * Description  用户服务相关
  * </pre>
  */
+@Transactional(rollbackFor = Exception.class)
 public interface UserService {
 	/**
 	 * 根据用户名查询用户
