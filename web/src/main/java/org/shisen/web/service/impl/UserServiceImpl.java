@@ -4,11 +4,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.shisen.web.mapper.UserMapper;
 import org.shisen.web.models.dto.UserDto;
 import org.shisen.web.models.vo.UserVo;
-import org.shisen.web.service.BaseService;
 import org.shisen.web.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+
+import static org.shisen.web.commn.utils.ClazzConver.conversion;
 
 /**
  * <pre>
@@ -19,7 +20,7 @@ import java.io.IOException;
  */
 @Service
 @Slf4j
-public class UserServiceImpl extends BaseService implements UserService  {
+public class UserServiceImpl implements UserService  {
 
 	private final UserMapper userMapper;
 

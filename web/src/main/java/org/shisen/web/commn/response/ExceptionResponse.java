@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.response;
+package org.shisen.web.commn.response;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package org.shisen.web.commn.config.config;
+package org.shisen.web.commn.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
