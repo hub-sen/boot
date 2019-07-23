@@ -8,6 +8,8 @@
         <module>lib</module>
         <module>job</module>
         <module>registry</module>
+        <module>user</module>
+        <module>common</module>
     </modules>
 
     <parent>
@@ -83,5 +85,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+    </dependencies>
 
 </project>
