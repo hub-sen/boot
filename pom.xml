@@ -8,6 +8,7 @@
         <module>lib</module>
         <module>job</module>
         <module>spring-ioc</module>
+        <module>registry</module>
     </modules>
 
     <parent>
@@ -26,7 +27,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>12</java.version>
+        <java.version>1.8</java.version>
+        <spring.cloud.version>Greenwich.RELEASE</spring.cloud.version>
         <swagger.version>2.9.2</swagger.version>
         <mybatis.starter.version>2.1.0</mybatis.starter.version>
         <mapper.start.version>2.1.5</mapper.start.version>
@@ -37,6 +39,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>

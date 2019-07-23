@@ -2,8 +2,21 @@ server:
   port: 8866
 
 spring:
+  application:
+    name: web-service
   datasource:
     driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.MysqlDataSource}
     url: ${DB_URL:jdbc:mysql://47.100.206.217:3306/shishi?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false}
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:iloveu}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${eureka.instance.ip-address}.${server.port}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 10
