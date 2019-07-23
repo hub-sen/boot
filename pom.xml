@@ -9,6 +9,7 @@
         <module>job</module>
         <module>spring-ioc</module>
         <module>registry</module>
+        <module>distributed-limit</module>
     </modules>
 
     <parent>
