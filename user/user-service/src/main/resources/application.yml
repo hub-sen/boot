@@ -9,7 +9,7 @@ spring:
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:iloveu}
   redis:
-    host: 192.168.72.162
+    host: 47.100.206.217
   profiles:
     active: dev
 eureka:
