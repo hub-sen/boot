@@ -16,27 +16,27 @@ public enum ExceptionEnum {
     /**
      * 致命异常
      */
-    EXCEPTION(500,"EXCEPTION"),
+    EXCEPTION(500,"致命异常"),
 
     /**
      * SQL异常
      */
-    SQL_EXCEPTION(500,"SQL_EXCEPTION"),
+    SQL_EXCEPTION(500,"SQL异常"),
 
     /**
      * 空指针异常
      */
-    NULL_POINT_EXCEPTION(500,"NULL_POINT_EXCEPTION"),
+    NULL_POINT_EXCEPTION(500,"空指针异常"),
 
     /**
      * 非法参数异常
      */
-    ILLEGAL_ARGUMENT_EXCEPTION(500,"ILLEGAL_ARGUMENT_EXCEPTION"),
+    ILLEGAL_ARGUMENT_EXCEPTION(500,"非法参数异常"),
 
     /**
      * 方法参数非法异常
      */
-    METHOD_ARGUMENT_NOT_VALID_EXCEPTION(500,"METHOD_ARGUMENT_NOT_VALID_EXCEPTION");
+    METHOD_ARGUMENT_NOT_VALID_EXCEPTION(500,"方法参数非法异常");
 
     static Map<Integer, String> map = new HashMap<>();
 

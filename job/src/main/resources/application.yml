@@ -1,3 +1,38 @@
+server:
+  port: 6668
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.MysqlDataSource}
+    url: ${DB_URL:jdbc:mysql://47.96.170.5:3306/shishi?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
+  redis:
+    host: 47.100.206.217
+  profiles:
+    active: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka
+    instance:
+      prefer-ip-address: true
+      ip-address: 127.0.0.1
+      instance-id: ${eureka.instance.ip-address}.${server.port}
+      lease-renewal-interval-in-seconds: 3
+      lease-expiration-duration-in-seconds: 10
+
+mybatis:
+  type-aliases-package: com.boot.user.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+project:
+  version: @project.version@
+
 schedules: 30000
 # 异步线程配置
 # 配置核心线程数
@@ -8,5 +43,4 @@ async.executor.thread.max_pool_size: 5
 async.executor.thread.queue_capacity: 99999
 # 配置线程池中的线程的名称前缀
 async.executor.thread.name.prefix: async-service-
-server:
-  port: 6668
+

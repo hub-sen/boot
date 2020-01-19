@@ -6,9 +6,9 @@ spring:
     name: web-service
   datasource:
     driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.MysqlDataSource}
-    url: ${DB_URL:jdbc:mysql://47.100.206.217:3306/shishi?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false}
+    url: ${DB_URL:jdbc:mysql://47.96.170.5:3306/shishi?useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true&useSSL=false}
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:iloveu}
+    password: ${DB_PASSWORD:123456}
 
 eureka:
   client:

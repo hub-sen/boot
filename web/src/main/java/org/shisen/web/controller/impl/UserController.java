@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+
 /**
  * @author shishi
  */
@@ -26,12 +29,12 @@ public class UserController implements UserApi {
 	}
 
 	@Override
-	public ResponseEntity<Boolean> addUser(@RequestBody UserDto userDto) {
+	public ResponseEntity<Boolean> addUser(@RequestBody @Valid UserDto userDto) {
 		return baseResponse(() -> userService.addUser(userDto));
 	}
 
 	@Override
-	public ResponseEntity<Boolean> delUser(String userName) {
+	public ResponseEntity<Boolean> delUser(@Min(value = 6,message = "长度不能小于 6") @Valid String userName) {
 		return baseResponse(() -> userService.delUser(userName));
 	}
 
