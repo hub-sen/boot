@@ -1,9 +1,9 @@
 package org.shisen.web.service.impl;
 
-import org.shisen.web.BootApplicationTests;
 import org.junit.Before;
 import org.junit.Test;
-import org.shisen.web.models.vo.UserVo;
+import org.shisen.web.BootApplicationTests;
+import org.shisen.web.entity.User;
 import org.shisen.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,16 +25,8 @@ public class UserServiceImplTest extends BootApplicationTests {
 
 	@Test
 	public void getUser() {
-		UserVo user = userService.getUser("施森");
+		User user = userService.getById("123");
 		System.out.println("user = " + user);
 	}
 
-	@Test
-	public void addUser() {
-
-	}
-
-	@Test
-	public void delUser() {
-	}
 }

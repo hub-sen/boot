@@ -1,18 +1,18 @@
 package org.shisen.web.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
-import org.shisen.web.models.dto.UserDto;
-import tk.mybatis.mapper.common.Mapper;
+import org.shisen.web.entity.User;
 
 /**
  * 用户相关 mapper
  * @author shishi
  */
-public interface UserMapper extends Mapper<UserDto> {
+public interface UserMapper extends BaseMapper<User> {
 	/**
 	 * 获取用户
 	 * @param userName  用户名
 	 * @return  用户信息
 	 */
-	UserDto mySelect(@Param("userName") String userName);
+	User mySelect(@Param("userName") String userName);
 }

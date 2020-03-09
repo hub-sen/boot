@@ -24,7 +24,6 @@ import org.shisen.web.models.BaseModel;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserVo extends BaseModel implements BaseVo {
 	@ApiModelProperty("用户Id")
-	@JsonIgnore
 	private Long userId;
 
 	@ApiModelProperty("用户名")
