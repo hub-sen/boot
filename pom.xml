@@ -23,7 +23,6 @@
     <artifactId>boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>boot</name>
-    <description>shishi I love u</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,8 +32,9 @@
         <swagger.version>2.9.2</swagger.version>
         <swagger.annotations.version>1.5.22</swagger.annotations.version>
         <swagger.models.version>1.5.22</swagger.models.version>
-        <pagehelper.boot.starter.version>1.2.10</pagehelper.boot.starter.version>
         <mybatis-plus.version>3.3.0</mybatis-plus.version>
+        <cglib.version>3.3.0</cglib.version>
+        <typetools.version>0.6.2</typetools.version>
     </properties>
 
     <dependencyManagement>
@@ -73,6 +73,16 @@
                 <artifactId>swagger-models</artifactId>
                 <version>${swagger.models.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>${cglib.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.jodah</groupId>
+                <artifactId>typetools</artifactId>
+                <version>${typetools.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -85,6 +95,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.shisen</groupId>
+            <artifactId>common</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

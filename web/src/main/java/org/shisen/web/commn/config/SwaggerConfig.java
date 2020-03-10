@@ -44,6 +44,13 @@ public class SwaggerConfig {
 	}
 
 	@SuppressWarnings("all")
+	@Bean
+	public Docket swaggerDocketClassification() {
+		Predicate<String> userPredicate = PathSelectors.ant("/classification/**");
+		return createSwaggerGroup("菜品分类相关", userPredicate);
+	}
+
+	@SuppressWarnings("all")
 	private Docket createSwaggerGroup(@NotNull String groupName, Predicate... predicates) {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.enable(enableSwagger())
