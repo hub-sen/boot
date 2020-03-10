@@ -2,9 +2,11 @@ package com.boot.common.beans;
 
 import net.sf.cglib.beans.BeanCopier;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 /**
  * {@link BeanCopier}的包装器wrapper类，在JavaBean之间提供便利和高性能的转换
@@ -56,6 +58,20 @@ public class WrapperBeanCopier {
 
         copyProperties(source, result);
         return result;
+    }
+
+    /**
+     * 将给定的源bean转换为指定类型的目标bean
+     * @param source
+     * @param clazz
+     * @param <T>
+     * @return  指定类型的目标集合   <code>T</code>
+     */
+    public static <T> List<T> convert(List<?> source, Class<T> clazz){
+        Objects.requireNonNull(source, "source must not be null");
+        return source.stream()
+                .map(x -> convert(x, clazz))
+                .collect(Collectors.toList());
     }
 
     /**

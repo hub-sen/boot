@@ -79,6 +79,21 @@ public class WrapperBeanConverterImpl implements WrapperBeanConverter {
     }
 
     /**
+     * 将给定的源bean转换为指定类型的目标bean
+     * @param source
+     * @param clazz
+     * @param <T>
+     * @return  指定类型的目标集合 bean <code>T</code>
+     */
+    @Override
+    public <T> List<T> convert(List<?> source, Class<T> clazz) {
+        Objects.requireNonNull(source, "source must not be null");
+        return source.stream()
+                .map(x -> convert(x, clazz))
+                .collect(Collectors.toList());
+    }
+
+    /**
      * 获取源类和目标类的{@link BeanCopier}
      * 如果<code> BEAN_COPIER_MAP </code>中未包含新的，则创建一个新的
      *

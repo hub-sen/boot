@@ -2,6 +2,8 @@ package com.boot.common.beans;
 
 import net.sf.cglib.beans.BeanCopier;
 
+import java.util.List;
+
 /**
  *
  * @author shishi
@@ -28,5 +30,14 @@ public interface WrapperBeanConverter {
      * @return 目标类型 <code>T</code>
      */
     <T> T convert(Object source, Class<T> clazz);
+
+    /**
+     * 将给定的源bean转换为指定类型的目标bean
+     * @param source
+     * @param clazz
+     * @param <T>
+     * @return 目标集合
+     */
+    <T> List<T> convert(List<?> source, Class<T> clazz);
 
 }

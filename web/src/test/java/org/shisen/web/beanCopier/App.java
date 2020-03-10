@@ -5,12 +5,13 @@ import com.boot.common.beans.WrapperBeanConverter;
 import com.boot.common.beans.WrapperBeanConverterBuilder;
 import com.boot.common.beans.WrapperBeanCopier;
 import org.junit.Test;
-import org.springframework.cglib.beans.BeanCopier;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <pre>
@@ -32,15 +33,7 @@ public class App {
         UserDto userDto = WrapperBeanCopier.convert(user, UserDto.class);
         System.out.println("user = " + user);
         System.out.println("userDto = " + userDto);
-
-        UserDto userDto1 = new UserDto();
-
-        BeanCopier beanCopier = BeanCopier.create(User.class, UserDto.class, false);
-        beanCopier.copy(user,userDto1,null);
-        System.out.println("userDto1 = " + userDto1);
-
     }
-
 
 
     /**
@@ -81,7 +74,7 @@ public class App {
         dto.setBalance("4000");
 
         WrapperBeanConverter converter = WrapperBeanConverterBuilder.create()
-                .registerConverter((String x)->{
+                .registerConverter((String x) -> {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     try {
                         simpleDateFormat.parse(x);
@@ -89,12 +82,35 @@ public class App {
                         e.printStackTrace();
                     }
                     return x;
-                } )
+                })
                 .build();
 
         Account po = converter.convert(dto, Account.class);
         System.out.println("po = " + po);
         System.out.println("dto = " + dto);
+    }
+
+
+    @Test
+    public void sameFieldListTest() {
+        User user1 = new User();
+        user1.setName("user1");
+        user1.setAge(1);
+        User user2 = new User();
+        user2.setName("user2");
+        user2.setAge(2);
+        User user3 = new User();
+        user3.setName("user3");
+        user3.setAge(3);
+        List<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+
+        List<UserDto> userDtos = WrapperBeanCopier.convert(users, UserDto.class);
+
+        System.out.println("convert = " + userDtos);
+
     }
 
 }
