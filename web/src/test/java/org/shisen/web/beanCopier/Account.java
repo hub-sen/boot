@@ -16,5 +16,6 @@ import java.util.Date;
 public class Account {
     private int id;
     private Date createTime;
+    private Date updateTime;
     private BigDecimal balance;
 }

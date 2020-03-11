@@ -4,6 +4,7 @@ import com.boot.common.beans.TypeConverter;
 import com.boot.common.beans.WrapperBeanConverter;
 import com.boot.common.beans.WrapperBeanConverterBuilder;
 import com.boot.common.beans.WrapperBeanCopier;
+import net.sf.cglib.beans.BeanCopier;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -71,23 +72,31 @@ public class App {
         AccountDto dto = new AccountDto();
         dto.setId(1);
         dto.setCreateTime("2020-03-11");
+        dto.setUpdateTime("2020-03-11 03:03:03");
         dto.setBalance("4000");
 
         WrapperBeanConverter converter = WrapperBeanConverterBuilder.create()
-                .registerConverter((String x) -> {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                .registerConverter((TypeConverter<String, Date>)(String x) -> {
+                    SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Date parse = null;
                     try {
-                        simpleDateFormat.parse(x);
+                        parse = dateTimeFormat.parse(x);
                     } catch (ParseException e) {
-                        e.printStackTrace();
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                        try {
+                            parse = dateFormat.parse(x);
+                        } catch (ParseException ex) {
+                            ex.printStackTrace();
+                        }
                     }
-                    return x;
+                    return parse;
                 })
+                .registerConverter((TypeConverter<String, BigDecimal>) x-> BigDecimal.valueOf(Double.parseDouble(x)))
                 .build();
 
         Account po = converter.convert(dto, Account.class);
-        System.out.println("po = " + po);
         System.out.println("dto = " + dto);
+        System.out.println("po = " + po);
     }
 
 
@@ -110,6 +119,26 @@ public class App {
         List<UserDto> userDtos = WrapperBeanCopier.convert(users, UserDto.class);
 
         System.out.println("convert = " + userDtos);
+
+    }
+
+
+    @Test
+    public void copyWithConverter() {
+        Account account = new Account();
+        account.setId(1);
+        account.setCreateTime(new Date());
+        account.setBalance(BigDecimal.valueOf(12.21));
+        BeanCopier beanCopier = BeanCopier.create(Account.class, AccountDto.class, true);
+
+        AccountDto accountDto = new AccountDto();
+
+        AccountConverter accountConverter = new AccountConverter();
+
+        beanCopier.copy(account,accountDto,accountConverter);
+
+        System.out.println("accountDto = " + accountDto);
+
 
     }
 

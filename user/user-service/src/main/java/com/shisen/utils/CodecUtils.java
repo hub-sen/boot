@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 /**
- * @author: shishi
+ * @author shishi
  **/
 public class CodecUtils {
 

@@ -13,5 +13,6 @@ import lombok.Data;
 public class AccountDto {
     private Integer id;
     private String createTime;
+    private String updateTime;
     private String balance;
 }

@@ -1,10 +1,10 @@
 package com.shisen.mapper;
 
-import com.boot.user.pojo.User;
-import tk.mybatis.mapper.common.Mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.shisen.entity.User;
 
 /**
  * @author shishi
  */
-public interface UserMapper extends Mapper<User> {
+public interface UserMapper extends BaseMapper<User> {
 }

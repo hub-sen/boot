@@ -1,5 +1,6 @@
 package com.shisen.controller;
 
+import com.boot.common.beans.WrapperBeanCopier;
 import com.boot.user.pojo.User;
 import com.shisen.service.UserService;
 import io.swagger.annotations.Api;
@@ -87,7 +88,8 @@ public class UserController {
 	})
 	@PostMapping("/register")
 	public ResponseEntity<Void> register(@Valid User user, @RequestParam("code") String code) {
-		boolean bool = userService.register(user, code);
+		com.shisen.entity.User user1 = WrapperBeanCopier.convert(user, com.shisen.entity.User.class);
+		boolean bool = userService.register(user1, code);
 		if (!bool) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -110,10 +112,10 @@ public class UserController {
 	public ResponseEntity<User> findUserByUsernameAndPassword(
 			@RequestParam("username") String username,
 			@RequestParam("password") String password) {
-		User user = userService.findUserByUsernameAndPassword(username, password);
+		com.shisen.entity.User user = userService.findUserByUsernameAndPassword(username, password);
 		if (user == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-		return ResponseEntity.ok(user);
+		return ResponseEntity.ok(WrapperBeanCopier.convert(user, User.class));
 	}
 }
