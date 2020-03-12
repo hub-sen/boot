@@ -10,7 +10,7 @@ spring:
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:123456}
   redis:
-    host: 47.100.206.217
+    host: 47.96.170.5
   profiles:
     active: dev
 

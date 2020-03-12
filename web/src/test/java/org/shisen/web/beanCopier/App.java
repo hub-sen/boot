@@ -142,4 +142,11 @@ public class App {
 
     }
 
+    @Test
+    public void testBigDecimal() {
+        BigDecimal bigDecimal = BigDecimal.valueOf(3.46);
+        String s = bigDecimal.setScale(1, BigDecimal.ROUND_HALF_EVEN).stripTrailingZeros().toPlainString();
+        System.out.println("s = " + s);
+    }
+
 }
