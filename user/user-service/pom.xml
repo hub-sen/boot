@@ -73,7 +73,6 @@
         <dependency>
             <groupId>com.shisen</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
